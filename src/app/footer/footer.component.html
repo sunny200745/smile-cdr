@@ -1,0 +1,7 @@
+<footer class="footer">
+    <div class="container" *ngIf="(patientCallObj | async)?.loadingTime">
+        <span class="text-muted"> <strong>{{(patientCallObj | async)?.method}}</strong> method of : <strong>{{(patientCallObj
+                | async)?.url}}</strong> took : <strong>{{(patientCallObj | async)?.loadingTime}}</strong>
+            milliseconds</span>
+    </div>
+</footer>

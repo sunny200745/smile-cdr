@@ -1,0 +1,73 @@
+<div class="container">
+
+    <div class="p-5 mb-4 bg-light border rounded-3">
+
+
+        <div class="card">
+            <h5 class="card-header">Search Patient Form</h5>
+            <div class="card-body">
+                <p>
+                    This is search patient page, You can search for Patient with Given(First) name or Family(Last) name.
+                    It uses angular reactive form for getting the name as query and fetch the result. Few things happens
+                    on the
+                    page are as follows:
+                </p>
+                <ul>
+                    <li>
+                        The First/Last name can only be alphabets , it throws error if uses alphanumeric chars.
+                    </li>
+                    <li>
+                        The submit button won't active unless the form is valid.
+                    </li>
+                    <li>
+                        On sucess of submit, form goes to reset state with the help of reset method.
+                    </li>
+                    <li>
+                        On fetching the result it displays the output on the Patient-List component which is used also
+                        in the
+                        home page.
+                    </li>
+                </ul>
+                <p>
+                    Upon fetching the data you can see the results in the table format and the table is <b>sorted</b> on
+                    First
+                    name and Birthdate
+                </p>
+                <hr class="my-4">
+
+                <form [formGroup]="patientForm" novalidate (ngSubmit)="searchForPatient(patientForm.value)">
+                    <div class="form-group">
+                        <input class="form-control" formControlName="givenName" type="text" placeholder="Given Name:">
+                    </div>
+                    <div *ngIf="!givenName?.valid && (givenName?.dirty || givenName?.touched)">
+                        <small class="text-danger" *ngIf="givenName?.errors?.['validName']">
+                            Name should only contains alphabets.
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <input class="form-control" formControlName="familyName" type="text" placeholder="Family Name:">
+                    </div>
+                    <div *ngIf="!familyName?.valid && (familyName?.dirty || familyName?.touched)">
+                        <small class="text-danger" *ngIf="familyName?.errors?.['validName']">
+                            Name should only contains alphabets.
+                        </small>
+                    </div>
+                    <button type="submit"
+                        [disabled]="!(patientForm.value.givenName || patientForm.value.familyName) || !patientForm.valid "
+                        class="btn btn-success submit-btn">
+                        Search
+                    </button>
+
+                </form>
+
+                <hr class="my-4">
+                <app-patient-list [patientsList]="patientsList" *ngIf="patientsList.length"></app-patient-list>
+                <div class="alert alert-info" *ngIf="patientDataAvailable && !patientsList.length">
+                    <strong>{{noPatientDataMsg}}</strong> 
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>

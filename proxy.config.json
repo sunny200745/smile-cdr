@@ -1,0 +1,8 @@
+{
+  "/baseR4": {
+    "target": "https://hapi.fhir.org/",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

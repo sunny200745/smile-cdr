@@ -1,0 +1,15 @@
+.container {
+    margin-top: 80px;
+
+    .form-group {
+        margin-top: 20px;
+    }
+
+    .submit-btn {
+        margin-top: 20px;
+    }
+
+    input.ng-invalid.ng-touched {
+        border: 1px solid red;
+    }
+}

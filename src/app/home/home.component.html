@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="p-5 mb-4 bg-light border rounded-3">
+
+
+        <div class="card">
+            <h5 class="card-header"> Patient List Page</h5>
+            <div class="card-body">
+                <p>
+                    This is patient listing page, Click on the button to fetch the patient list. Few things have to be
+                    doen in order to make things possible are as follows:
+                </p>
+                <ul>
+                    <li>
+                        The <strong>https://try.smilecdr.com/baseR4/Patient</strong> giving CORS issue, so implemented
+                        proxy in order to complete the task.
+                    </li>
+                    <li>
+                        Implemented the loading on every http call, use interceptor to make it look good.
+                    </li>
+                    <li>
+                        Upon fetching the data you can see the results in the table format and the table is
+                        <b>sorted</b> on First name and Birthdate.
+                    </li>
+                    <li>
+                        The fetched results displays on the Patient-List component rather then in template.
+                    </li>
+                </ul>
+                <hr class="my-4">
+                <p class="lead">
+                    <button type="button" class="btn btn-info" (click)="getPatients()">Button to fetch data</button>
+                </p>
+
+                <hr class="my-4">
+                <app-patient-list [patientsList]="patientsList" *ngIf="patientsList.length"></app-patient-list>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
