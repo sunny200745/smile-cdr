@@ -14,6 +14,12 @@ import { FooterComponent } from './footer/footer.component';
 import { CommonPipe } from './shared/common.pipe';
 import { SearchPatientComponent } from './search-patient/search-patient.component';
 import { PatientListComponent } from './patient-list/patient-list.component';
+import { PatientDetailsComponent } from './patient-details/patient-details.component';
+import { QuestionaireComponent } from './questionaire/questionaire.component';
+import { QuestionaireInputComponent } from './questionaire-input/questionaire-input.component';
+import { JsonFormComponent } from './json-form/json-form.component';
+import { PatientDetailsJsonComponent } from './patient-details-json/patient-details-json.component';
+import { FormResultComponent } from './form-result/form-result.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +30,13 @@ import { PatientListComponent } from './patient-list/patient-list.component';
     FooterComponent,
     CommonPipe,
     SearchPatientComponent,
-    PatientListComponent
+    PatientListComponent,
+    PatientDetailsComponent,
+    QuestionaireComponent,
+    QuestionaireInputComponent,
+    JsonFormComponent,
+    PatientDetailsJsonComponent,
+    FormResultComponent
   ],
   imports: [
     BrowserModule,

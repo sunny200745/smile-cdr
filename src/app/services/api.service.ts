@@ -15,4 +15,8 @@ export class ApiService {
   fetchPatient(givenName?: string, familyName?: string) {
     return this.http.get(`baseR4/Patient?given=${givenName}&family=${familyName}`)
   }
+
+  getQuestions(){
+    return this.http.get("/assets/questionnaire.json");
+  }
 }
