@@ -1,0 +1,52 @@
+<form [formGroup]="jsonForm" (ngSubmit)="onSubmit()">
+    
+
+    <div *ngFor="let control of jsonFormData?.item">
+        <div [ngSwitch]="control.controlType">
+
+            <div *ngSwitchCase="'text'" class="form-group">
+                <label [attr.for]="control.key">{{control.text}}</label>
+                <input class="form-control" [formControlName]="control.name" [id]="control.key"
+                    [type]="control.controlType">
+            </div>
+
+            <div *ngSwitchCase="'dropdown'" class="form-group">
+                <label [attr.for]="control.key">{{control.text}}</label>
+                <select class="form-select" [id]="control.key" [formControlName]="control.name">
+                    <option *ngFor="let opt of control.option" [value]="opt.valueCoding.code">{{opt.valueCoding.display}}</option>
+                </select>
+            </div>
+
+
+
+            <div *ngSwitchCase="'date'" class="form-group">
+                <label [attr.for]="control.key">{{control.text}}</label>
+                <input class="form-control" [formControlName]="control.name" [id]="control.name"
+                    [type]="control.controlType">
+
+            </div>
+
+            <div *ngSwitchCase="'radio'" class="form-group">
+                <label [attr.for]="control.key">{{control.text}}</label>
+                <div>
+
+                    <div class="form-check form-check-inline" *ngFor="let opt of control.option">
+                        <input class="form-check-input" type="radio" [formControlName]="control.name" [id]="control.name" [value]="opt.valueCoding.code">
+                        <label class="form-check-label" [attr.for]="opt.valueCoding.code"> {{ opt.valueCoding.display }} </label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="errorMessage" *ngIf="!jsonForm.valid">{{control.name}} is required</div>
+    </div>
+
+    <button type="submit" class="form-group btn btn-success submit-btn" [disabled]="!jsonForm.valid">
+        Submit
+    </button>
+</form>
+
+<div *ngIf="formData">
+    <app-form-result [formData]="formData"></app-form-result>
+</div>

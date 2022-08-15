@@ -1,0 +1,36 @@
+<hr class="my-4">
+<p>Data Entered by customer : </p>
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Keys
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Allergies</li>
+                <li class="list-group-item">Gender</li>
+                <li class="list-group-item">Date of Birth</li>
+                <li class="list-group-item">Country of Birth</li>
+                <li class="list-group-item">Marital Status</li>
+                <li class="list-group-item">Smoke</li>
+                <li class="list-group-item">Alchohol</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+        <div class="card" style="width: 18rem;">
+            <div class="card-header">
+                Values
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">{{formData.allergies ? formData.allergies : 'Not Entered'}}</li>
+                <li class="list-group-item">{{formData.gender ? formData.gender : 'Not Entered'}}</li>
+                <li class="list-group-item">{{formData.dateOfBirth ? formData.dateOfBirth : 'Not Entered'}}</li>
+                <li class="list-group-item">{{formData.countryOfBirth ? formData.countryOfBirth : 'Not Entered'}}</li>
+                <li class="list-group-item">{{formData.maritalStatus ? formData.maritalStatus : 'Not Entered'}}</li>
+                <li class="list-group-item">{{formData.smoke ? formData.smoke : 'Not Entered'}}</li>
+                <li class="list-group-item">{{formData.alchohol ? formData.alchohol : 'Not Entered'}}</li>
+            </ul>
+        </div>
+    </div>
+</div>

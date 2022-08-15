@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="submitForm()">
+    <div *ngFor="let formField of formFields">
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <app-questionaire-input [input]="formField" [form]="form"></app-questionaire-input>
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="form-group btn btn-success submit-btn" [disabled]="!form.valid">
+        Submit
+    </button>
+</form>
+
+<div *ngIf="formData ">
+    <app-form-result [formData]="formData"></app-form-result>
+</div>

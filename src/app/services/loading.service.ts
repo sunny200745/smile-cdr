@@ -21,7 +21,6 @@ export class LoadingService {
 
   private _patientObj = new BehaviorSubject<PatientObj>(this.patientObj);
   public readonly patientObj$ = this._patientObj.asObservable();
-
   constructor() { }
 
   startTime: any | undefined;
@@ -32,15 +31,10 @@ export class LoadingService {
   
   hideLoader() {
     this._loading.next(false);
-    this.loading$.subscribe((val)=>{
-      console.log('Loading Value', val)
-    })
-    
   }
 
   requestTimerLog(st: number, url: string, method: string) {
     this._patientObj.next({url:url, method:method, loadingTime: performance.now() - st});
     console.log(`HTTP ${method} ${url} - ${performance.now() - st} milliseconds`);
   }
-
 }
